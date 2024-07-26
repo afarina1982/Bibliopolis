@@ -8,7 +8,7 @@ export class UsuarioController {
     constructor(private readonly usuarioService: UsuarioService){}
 
     @Get()
-    obtenerUsuarios(): Usuario[] {
+    obtenerUsuarios(): Omit<Usuario, "contrasena">[] {
         return this.usuarioService.obtenerUsuarios();
     }
 
@@ -21,7 +21,7 @@ export class UsuarioController {
     eliminarUsuario(@Param('id') id: number): void {
         this.usuarioService.eliminarUsuario(id);
     }
-    
+
     @Post()
     agregarUsuario(@Body() usuario: Usuario): void {
         this.usuarioService.crearUsuario(usuario);
