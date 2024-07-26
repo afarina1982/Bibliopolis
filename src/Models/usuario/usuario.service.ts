@@ -12,7 +12,7 @@ export class UsuarioService {
         usuario.id = this.usuarios.length + 1;
         this.usuarios.push(usuario);
     }
-    
+
     obtenerUsuarios(): Omit<Usuario, 'contrasena'>[] {
         return this.usuarios.map(({ contrasena, ...rest }) => rest);
     }
